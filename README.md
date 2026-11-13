@@ -35,6 +35,25 @@ KANAL KİMLİĞİ
 | [09 Topluluk](prompts/09-topluluk-ve-etkilesim.md) | Yorum, topluluk gönderisi, abone çağrısı |
 | [10 Tanıtım](prompts/10-yeniden-kullanim-ve-tanitim.md) | Diğer platformlarda dağıtım, iş birliği |
 
+## Analiz araçları
+
+`tools/` klasöründe YouTube Data API ile çalışan üç komut satırı aracı var. Yalnızca Python 3.9+ gerekir; ek paket kurulmaz. Çıktılar Markdown rapordur ve promptlara doğrudan yapıştırılabilir.
+
+| Komut | Ne yapar |
+|---|---|
+| `python3 -m tools.baslik_analizi "arama ifadesi"` | Bir aramada en çok izlenen videoların başlık, etiket ve süre kalıplarını çıkarır (çalıştırma başına 100 kota birimi) |
+| `python3 -m tools.rakip_takibi @kanal1 @kanal2` | Rakip kanalların, kendi ortancasının en az 2 katı izlenen videolarını bulur |
+| `python3 -m tools.yayin_zamani @kanalim` | Videolarınızı yayın günü ve saatine göre karşılaştırır |
+
+Ortak seçenekler: `--cikti rapor.md` (dosyaya yaz), `--shorts-haric` (60 saniye ve altını sayma), `--adet N`. Tümü için `--help`.
+
+**API anahtarı:** Google Cloud Console'da "YouTube Data API v3" için bir API anahtarı oluşturun.
+
+- Kendi bilgisayarınızda: `export YOUTUBE_API_KEY=...`
+- Claude bulut ortamında: ortam ayarlarında ağ gizli anahtarı olarak `youtube.googleapis.com` adresi ve `X-Goog-Api-Key` başlığıyla kaydedin; değişken gerekmez.
+
+Testler: `python3 -m unittest discover -s tests`
+
 ## Önerilen iş akışı (her video için)
 
 1. **Fikir:** 02'den konu seçin.
