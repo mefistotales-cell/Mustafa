@@ -63,6 +63,14 @@ Testler: `python3 -m unittest discover -s tests`
 - Konuşmadan otomatik altyazı için ayrıca `pip install faster-whisper` gerekir.
 - Güncelleme: depo kökünde `npx ffmpeg-skill --project`
 
+## Otomatik Shorts klipleri (PeakCut)
+
+`.claude/skills/peakcut/` altında [PeakCut](https://github.com/haziqahmedqasmi/PeakCut) (MIT) için bir beceri var. Uzun bir videodan öne çıkan anları seçip altyazılı, dikey (9:16) klipler üretir. Claude Code'a "bu videodan Shorts çıkar" demeniz yeterli; uygulama ilk kullanımda `.peakcut/` klasörüne kurulur (depoya eklenmez).
+
+- Elle: `bash .claude/skills/peakcut/kur.sh`, sonra `.peakcut/venv/bin/python .claude/skills/peakcut/klip.py video.mp4 --cikti klipler/`
+- Yapay zekâ anahtarı (`PEAKCUT_AI_KEY` vb.) verilmezse anlar yalnızca ses yüksekliğine göre seçilir; başlık ve kanca üretilmez.
+- Yalnızca kendi videolarınızı ya da kullanma izniniz olan videoları kırpın.
+
 ## Önerilen iş akışı (her video için)
 
 1. **Fikir:** 02'den konu seçin.
