@@ -71,6 +71,14 @@ Testler: `python3 -m unittest discover -s tests`
 - Yapay zekâ anahtarı (`PEAKCUT_AI_KEY` vb.) verilmezse anlar yalnızca ses yüksekliğine göre seçilir; başlık ve kanca üretilmez.
 - Yalnızca kendi videolarınızı ya da kullanma izniniz olan videoları kırpın.
 
+## Referans video analizi
+
+`.claude/skills/referans-analiz/` becerisi, örnek aldığınız bir videonun yapısını çıkarır: kesmeler ve plan süreleri (pyscenedetect), tempo (librosa), konuşma metni (whisper), istenirse sesi müzikten ayırma (demucs); bağlantı verirseniz önce yt-dlp ile indirir. Claude Code'a "bu videoyu analiz et" demeniz yeterli.
+
+- Elle: `bash .claude/skills/referans-analiz/kur.sh`, sonra `.referans/venv/bin/python .claude/skills/referans-analiz/analiz.py video.mp4 --dil tr`
+- Rapor Markdown olarak `raporlar/` altına yazılır ve 05 ile 08 numaralı promptlara yapıştırılabilir.
+- Referans videoyu yalnızca incelemek için kullanın; içeriğini kopyalamayın.
+
 ## Önerilen iş akışı (her video için)
 
 1. **Fikir:** 02'den konu seçin.
