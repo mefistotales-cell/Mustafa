@@ -54,6 +54,15 @@ Ortak seçenekler: `--cikti rapor.md` (dosyaya yaz), `--shorts-haric` (60 saniye
 
 Testler: `python3 -m unittest discover -s tests`
 
+## Video düzenleme (ffmpeg-skill)
+
+`.claude/skills/ffmpeg-skill/` altında [kajisho5/ffmpeg-skill](https://github.com/kajisho5/ffmpeg-skill) (v3.10.1, MIT) kurulu. Bu depoda Claude Code ile çalışırken bir video dosyasından söz etmeniz yeterli; Claude kesme, sessizlik silme, 9:16'ya çevirme, altyazı, ses seviyesi ve platform (YouTube / Shorts) dışa aktarma işlerini yerel FFmpeg ile yapar ve çıktıyı kontrol eder. Bulut ya da API anahtarı gerekmez.
+
+- Gereken: `ffmpeg` 6.1+ ve Python 3.10+. Kontrol: `python3 .claude/skills/ffmpeg-skill/scripts/_contract.py doctor`
+- Örnek istek: "`video.mp4` içinden 0:45–3:10 arasını al, sessizlikleri sil, Shorts için 9:16 yap."
+- Konuşmadan otomatik altyazı için ayrıca `pip install faster-whisper` gerekir.
+- Güncelleme: depo kökünde `npx ffmpeg-skill --project`
+
 ## Önerilen iş akışı (her video için)
 
 1. **Fikir:** 02'den konu seçin.
