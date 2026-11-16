@@ -79,6 +79,26 @@ Testler: `python3 -m unittest discover -s tests`
 - Rapor Markdown olarak `raporlar/` altına yazılır ve 05 ile 08 numaralı promptlara yapıştırılabilir.
 - Referans videoyu yalnızca incelemek için kullanın; içeriğini kopyalamayın.
 
+## Görsel üretim becerileri (creator-generalist)
+
+`.claude/skills/` altında [creator-generalist](https://github.com/codepawl/creator-generalist) paketinin 16 becerisi kurulu (MIT). Claude Code'da işi tarif etmeniz yeterli; uygun beceri kendisi yüklenir.
+
+| İstek | Beceri |
+|---|---|
+| Vox tarzı açıklayıcı grafik, harita, çizelge, zaman çizgisi | `2d-generalist` (kısayol `/2dg`) |
+| Blender ya da Three.js ile 3D Shorts, kesit sahne, karakter | `3d-generalist` (kısayol `/3dg`) ve `model-characters`, `sculpt-models`, `rig-characters`, `animate-characters`, `use-3d-software` |
+| Çizim, boyama, arka plan | `draw-and-paint-art`, `paint-stylized-backgrounds` |
+| Resolve, CapCut, Premiere ya da FFmpeg'de kurgu rehberi | `edit-video` |
+| Bir videoyu izleyip yeniden yapılabilir tarife çevirme | `watch-video` |
+| Ses efekti ve müzik bulma, üretme, miksleme | `design-sound` |
+| Küçük oyun prototipi | `game-generalist` (kısayol `/gameg`) |
+
+- 3D işler için Blender 4.2 veya üstü gerekir (5.x önerilir). Araç denetimi: `python3 .claude/skills/2d-generalist/scripts/check_vox_toolchain.py`
+- `design-sound` içindeki ElevenLabs ve fal.ai adımları kendi API anahtarınızı ister; anahtarsız adımlar çalışır.
+- İndirilen ses, müzik ve görsellerin lisansını yayından önce kontrol edin.
+
+Ayrıca `unslopovich` becerisi kurulu: yapay zekâ yapımı gibi görünen uygulama ve site arayüzlerini bulup düzeltir (`/unslopovich`). Kaynak ve lisans listesi: `.claude/skills/_lisanslar/KAYNAKLAR.md`.
+
 ## Önerilen iş akışı (her video için)
 
 1. **Fikir:** 02'den konu seçin.
